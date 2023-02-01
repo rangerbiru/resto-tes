@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/resto-tes/static/css/main.5a0f271f.css",
+    "main.js": "/resto-tes/static/js/main.63a71996.js",
+    "static/media/bg2.jpg": "/resto-tes/static/media/bg2.9314963bb778dd05cb14.jpg",
+    "static/media/bg1.jpg": "/resto-tes/static/media/bg1.1da55954aa5183cc8a36.jpg",
+    "static/media/about.jpg": "/resto-tes/static/media/about.c3aa9e06831bd88b8db7.jpg",
+    "index.html": "/resto-tes/index.html",
+    "main.5a0f271f.css.map": "/resto-tes/static/css/main.5a0f271f.css.map",
+    "main.63a71996.js.map": "/resto-tes/static/js/main.63a71996.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a0f271f.css",
+    "static/js/main.63a71996.js"
+  ]
+}
