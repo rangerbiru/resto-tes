@@ -1,6 +1,41 @@
 import React from "react";
+import { useEffect } from "react";
 
 const Contact = () => {
+  const urlForm =
+    "https://script.google.com/macros/s/AKfycbxRpnEuOuPloIkZ0pbTCx7feqtEuFuZxz-QPQo7BLiI-L4fSd8bhEdg7BFLv81txQni5A/exec";
+  const form = document.forms["contact-resto"];
+
+  const sendForm = async (e) => {
+    e.preventDefault();
+    await fetch(urlForm, { method: "POST", body: new FormData(form) })
+      .then((res) => {
+        form.reset();
+        console.log("Success", res);
+      })
+      .catch((error) => console.error("Error!", error.message));
+  };
+
+  useEffect(() => {
+    sendForm();
+  }, []);
+
+  // useEffect(() => {
+  //   const scriptURL =
+  //     "https://script.google.com/macros/s/AKfycbxRpnEuOuPloIkZ0pbTCx7feqtEuFuZxz-QPQo7BLiI-L4fSd8bhEdg7BFLv81txQni5A/exec";
+  //   const form = document.forms["contact-resto"];
+
+  //   form.addEventListener("submit", (e) => {
+  //     e.preventDefault();
+  //     fetch(scriptURL, { method: "POST", body: new FormData(form) })
+  //       .then((response) => {
+  //         form.reset();
+  //         console.log("Success!", response);
+  //       })
+  //       .catch((error) => console.error("Error!", error.message));
+  //   });
+  // }, []);
+
   return (
     <section id="contact" className="flex items-center py-36 px-20">
       <div className="col50 px-4">
@@ -23,7 +58,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="col50 px-4">
-        <form>
+        <form name="contact-resto" onSubmit={sendForm}>
           <div class="form-group mb-6">
             <label
               for="exampleInputEmail1"
@@ -32,7 +67,8 @@ const Contact = () => {
               Your Name
             </label>
             <input
-              type="email"
+              type="text"
+              name="nama"
               class="form-control
         block
         w-full
@@ -62,6 +98,7 @@ const Contact = () => {
             </label>
             <input
               type="email"
+              name="email"
               class="form-control block
         w-full
         px-3
@@ -89,6 +126,7 @@ const Contact = () => {
               Your Message
             </label>
             <textarea
+              name="pesan"
               class="
         form-control
         block
@@ -113,7 +151,7 @@ const Contact = () => {
           </div>
 
           <button
-            type="submit"
+            // type="submit"
             class="
       px-6
       py-2.5
